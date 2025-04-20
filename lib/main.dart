@@ -36,6 +36,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  // ウィジェットのときにはkeyを最初に書くのが一般的なため
+  // ignore: always_put_required_named_parameters_first
   const MyHomePage({super.key, required this.title});
 
   // This widget is the home page of your application. It is stateful, meaning

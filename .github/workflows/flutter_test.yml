@@ -20,12 +20,13 @@ jobs:
         run: |
           FLUTTER_VERSION=$(jq -r '.flutter' .fvmrc)
           echo "flutter_version=$FLUTTER_VERSION" >> $GITHUB_OUTPUT
-
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: ${{ steps.fvm.outputs.flutter_version }}
           cache: true
       - name: Install dependencies
         run: flutter pub get
+      - name: Run analyze
+        run: flutter analyze
       - name: Run tests
         run: flutter test
