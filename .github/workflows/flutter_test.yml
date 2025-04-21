@@ -10,6 +10,7 @@ on:
 
 jobs:
   test:
+    name: Analyze & Test
     runs-on: ubuntu-latest
 
     steps:
@@ -24,8 +25,18 @@ jobs:
         with:
           flutter-version: ${{ steps.fvm.outputs.flutter_version }}
           cache: true
+      - name: Cache pub packages
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.pub-cache
+          key: ${{ runner.os }}-pub-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-
       - name: Install dependencies
         run: flutter pub get
+      - name: Run flutter doctor
+        run: flutter doctor -v
       - name: Run analyze
         run: flutter analyze
       - name: Run tests
