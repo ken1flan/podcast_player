@@ -11,12 +11,10 @@ void main() {
           children: [
             GoldenTestScenario(
               name: 'my_app',
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(
-                  maxWidth: 300,
-                  maxHeight: 600,
-                ),
-                child: const MyApp(),
+              child: const SizedBox(
+                width: 400, // 必要に応じて幅を明示的に指定
+                height: 800, // 必要に応じて高さを明示的に指定
+                child: MyApp(),
               ),
             ),
           ],
