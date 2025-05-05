@@ -41,3 +41,11 @@ jobs:
         run: flutter analyze
       - name: Run tests
         run: flutter test
+      # The 'test/golden/failures' directory is expected to contain artifacts (e.g., images)
+      # generated during test failures. This step uploads those artifacts for debugging purposes.
+      - name: Upload golden failure images
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: golden-failures
+          path: test/golden/failures
