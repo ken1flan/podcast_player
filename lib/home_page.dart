@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 class HomePage extends StatefulWidget {
   // ウィジェットのときにはkeyを最初に書くのが一般的なため
   // ignore: always_put_required_named_parameters_first
-  const HomePage({super.key, required this.title});
-
-  final String title;
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -25,7 +23,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: const Text('Flutter Demo Home Page'),
       ),
       body: Center(
         child: Column(
