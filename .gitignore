@@ -51,3 +51,7 @@ app.*.map.json
 test/**/goldens/**/*.*
 test/**/failures/**/*.*
 !test/**/goldens/ci/*.*
+
+# Ruby Gems(for cocoapods)
+vendor
+
